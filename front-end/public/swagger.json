@@ -1,0 +1,289 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API de cliente para teste de Back-End Algar Tech",
+    "version": "1.0.0",
+    "title": "Algar Tech"
+  },
+  "basePath": "/clients",
+  "definitions": {
+    "getClientes": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "id caracter"
+        }
+      }
+    },
+    "Clientes": {
+      "type": "object",
+      "required": [
+        "name",
+        "document_id",
+        "phone_number",
+        "email",
+        "client_id",
+        "client_type",
+        "products",
+        "addresses"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Nome do cliente"
+        },
+        "document_id": {
+          "type": "number",
+          "description": "Documento de identificação"
+        },
+        "phone_number": {
+          "type": "string",
+          "description": "Telefone do cliente"
+        },
+        "email": {
+          "type": "string",
+          "description": "E-mail do cliente"
+        },
+        "client_id": {
+          "type": "string",
+          "description": "Identificação do cliente"
+        },
+        "client_type": {
+          "type": "string",
+          "description": "Tipo do cliente"
+        },
+        "products": {
+          "type": "object",
+          "description": "Array de Objeto de produtos do cliente",
+          "properties": {
+            "names": {
+              "type": "string",
+              "description": "Nome do produto"
+            },
+            "list_price": {
+              "type": "string",
+              "description": "Preço do produto"
+            },
+            "sku": {
+              "type": "number",
+              "description": "Unidade de Manutenção"
+            },
+            "product_id": {
+              "type": "string",
+              "description": "Identificação do produto"
+            }
+          }
+        },
+        "addresses": {
+          "type": "object",
+          "description": "Endereço do cliente",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "Rua do cliente"
+            },
+            "city": {
+              "type": "string",
+              "description": "Cidade do cliente"
+            },
+            "state": {
+              "type": "number",
+              "description": "Número da residência do cliente"
+            },
+            "zip": {
+              "type": "string",
+              "description": "Código postal"
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/clients": {
+      "get": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "Busca todos os clientes",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto de informações referente ao cliente",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getClientes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso"
+          },
+          "400": {
+            "description": "Requisição inválida"
+          },
+          "404": {
+            "description": "Informação não encontrada"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "Adicionar um novo cliente",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto de informações referente ao cliente",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Clientes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso"
+          },
+          "400": {
+            "description": "Requisição inválida"
+          },
+          "404": {
+            "description": "Informação não encontrada"
+          }
+        }
+      }
+    },
+    "/clients/:idClient": {
+      "get": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "Lista um único cliente",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto de informações referente ao cliente",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getClientes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso"
+          },
+          "400": {
+            "description": "Requisição inválida"
+          },
+          "404": {
+            "description": "Informação não encontrada"
+          }
+        }
+      }
+    },
+    "/clients/id": {
+      "put": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "Atualiza um cliente",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto de informações referente ao cliente",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Clientes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso"
+          },
+          "400": {
+            "description": "Requisição inválida"
+          },
+          "404": {
+            "description": "Informação não encontrada"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "clients"
+        ],
+        "summary": "Remove um cliente",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Objeto de informações referente ao cliente",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getClientes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisição realizada com sucesso"
+          },
+          "400": {
+            "description": "Requisição inválida"
+          },
+          "404": {
+            "description": "Informação não encontrada"
+          }
+        }
+      }
+    }
+  }
+}
